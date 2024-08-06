@@ -59,6 +59,14 @@ The following will run the container and map all ports to their respective ports
       -p 8074:8074 -p 8080:8080 \
       splitbrain/phpfarm:jessie
 
+
+    docker run --rm -h myapp.com -t -i -e APACHE_UID=$UID -v $PWD:/var/www:rw \
+      -p 8051:8051 -p 8052:8052 -p 8053:8053 -p 8054:8054 -p 8055:8055 \
+      -p 8056:8056 -p 8070:8070 -p 8071:8071 -p 8072:8072 -p 8073:8073 \
+      -p 8074:8074 -p 8080:8080 \
+      splitbrain/phpfarm:jessie
+
+
 You can access the Apache/PHP via localhost. Eg. `http://localhost:8073` for the PHP 7.3 version. The nightly build is available on port `8000`.
 
 Above command will also remove the container again when the process is aborted with CTRL-C (thanks to the `--rm` option). While running, the Apache and PHP error log is shown on STDOUT.
